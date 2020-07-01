@@ -10,6 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -41,7 +42,21 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[hash].[ext]',
+            },
+          },
+        ],
+      },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

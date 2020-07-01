@@ -1,1 +1,13 @@
-body { margin: 0; background-color: red;}
+// importamos otros scss para usarlos en este que es el principal
+@import "./Vars.scss";
+@import "./Media.scss";
+
+body {
+  margin: 0;
+  font-family: $theme-font;
+  background: $main-color;
+}
+
+* {
+  box-sizing: border-box;
+}
